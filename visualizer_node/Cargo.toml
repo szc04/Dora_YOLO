@@ -1,0 +1,13 @@
+[package]
+name = "visualizer_node"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "visualizer_node"
+path = "src/main.rs"
+
+[dependencies]
+dora-node-api = "0.3.13"
+opencv = { version = "0.97.2", features = ["clang-runtime"] }
+bytemuck = "1.12.0"
