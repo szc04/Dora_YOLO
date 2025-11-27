@@ -1,7 +1,0 @@
-[workspace]
-members = [
-    "camera_node",
-    "detector_node",
-    "visualizer_node",
-]
-resolver = "2"

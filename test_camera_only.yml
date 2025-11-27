@@ -1,8 +1,0 @@
-nodes:
-  - id: camera
-    build: cd camera_node && cargo build --release
-    path: ./target/release/camera_node
-    inputs: {}
-    outputs:
-      - frame
-

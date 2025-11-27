@@ -13,3 +13,4 @@ opencv = { version = "0.97.2", features = ["clang-runtime"] }
 tract-onnx = "0.22.0"
 ndarray = "0.15"
 bytemuck = "1.12.0"
+arrow = "54.3.1"

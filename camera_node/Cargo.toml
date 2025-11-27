@@ -10,4 +10,4 @@ path = "src/main.rs"
 [dependencies]
 dora-node-api = "0.3.13"
 opencv = { version = "0.97.2", features = ["clang-runtime"] }
-
+arrow = "54.3.1"
