@@ -1,0 +1,21 @@
+nodes:
+  - id: camera
+    path: target/release/camera_node
+    inputs:
+      tick: dora/timer/millis/33  # 使用Dora内置的timer，每33毫秒触发一次（约30FPS）
+    outputs:
+      - frame
+  - id: detector
+    path: target/release/detector_node
+    inputs:
+      frame:
+        source: camera/frame
+    outputs:
+      - detections
+  - id: visualizer
+    path: target/release/visualizer_node
+    inputs:
+      frame:
+        source: camera/frame
+      detections:
+        source: detector/detections
