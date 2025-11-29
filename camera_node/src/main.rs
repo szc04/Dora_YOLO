@@ -88,7 +88,7 @@ fn main() {
                         ).unwrap();
 
                         // 显示图像
-                        highgui::imshow("Camera Feed", &frame).unwrap();
+            //            highgui::imshow("Camera Feed", &frame).unwrap();
 
                         // 将OpenCV Mat转换为字节数组 - BGR格式
                         let size = frame.size().unwrap();
@@ -113,7 +113,13 @@ fn main() {
 
                         // 使用正确的API发送数据
                         let output_id = DataId::from("frame".to_string());
-                        let parameters = MetadataParameters::default();
+                     //   let parameters = MetadataParameters::default();
+                        
+                        let mut parameters = MetadataParameters::new();
+                        parameters.insert("width".to_string(), dora_node_api::Parameter::String(actual_width.to_string()));
+                        parameters.insert("height".to_string(), dora_node_api::Parameter::String(actual_height.to_string()));
+                        parameters.insert("channels".to_string(), dora_node_api::Parameter::String(actual_channels.to_string()));
+                        parameters.insert("frame_id".to_string(), dora_node_api::Parameter::String(frame_count.to_string()));
                         
                         match node.send_output_bytes(output_id, parameters, mat_data.len(), &mat_data) {
                             Ok(_) => {
